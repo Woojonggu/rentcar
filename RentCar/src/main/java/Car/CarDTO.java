@@ -4,11 +4,11 @@ import java.sql.Timestamp;
 
 public class CarDTO {
 	
-	private int carNum;
-	private String carName, hourPrice,year,seater,possibleAge;
+	
+	private String carNum, carName, hourPrice,year,seater,possibleAge;
 	private Timestamp registDate;
 	
-	public CarDTO(int carNum, String carName, String hourPrice, String year, String seater, String possibleAge, Timestamp registDate) {
+	public CarDTO(String carNum, String carName, String hourPrice, String year, String seater, String possibleAge, Timestamp registDate) {
 		this.carNum = carNum;
 		this.carName = carName;
 		this.hourPrice = hourPrice;
@@ -18,11 +18,11 @@ public class CarDTO {
 		this.registDate = registDate;
 	}
 
-	public int getCarNum() {
+	public String getCarNum() {
 		return carNum;
 	}
 
-	public void setCarNum(int carNum) {
+	public void setCarNum(String carNum) {
 		this.carNum = carNum;
 	}
 

@@ -3,11 +3,11 @@ package Car;
 import java.sql.Timestamp;
 
 public class Car {
-	private int carNum;
-	private String carName, hourPrice,year,seater,possibleAge;
+	
+	private String carNum, carName, hourPrice,year,seater,possibleAge;
 	private Timestamp registDate;
 	
-	public Car(int carNum, String carName, String hourPrice, String year, String seater, String possibleAge, Timestamp registDate) {
+	public Car(String carNum, String carName, String hourPrice, String year, String seater, String possibleAge, Timestamp registDate) {
 		this.carNum = carNum;
 		this.carName = carName;
 		this.hourPrice = hourPrice;
@@ -25,7 +25,7 @@ public class Car {
 		this.possibleAge = carDTO.getPossibleAge();
 		this.registDate = carDTO.getRegistDate();
 	}
-	public int getCarNum() {
+	public String getCarNum() {
 		return carNum;
 	}
 	public String getCarName() {

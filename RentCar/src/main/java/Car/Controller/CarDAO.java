@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import Car.Car;
 import Car.CarDTO;
+import User.User;
 import Util.DBManager;
-import member.Member;
 
 public class CarDAO {
 	private Connection conn;
@@ -33,7 +33,7 @@ public class CarDAO {
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
 				
-				this.pstmt.setInt(1, car.getCarNum());
+				this.pstmt.setString(1, car.getCarNum());
 				this.pstmt.setString(2, car.getCarName());
 				this.pstmt.setString(3, car.getHourPrice());
 				this.pstmt.setString(4, car.getYear());
@@ -68,7 +68,7 @@ public class CarDAO {
 				this.rs = this.pstmt.executeQuery();
 				
 				while(this.rs.next()) {
-					int num = this.rs.getInt(1);
+					String num = this.rs.getString(1);
 					String name = this.rs.getString(2);
 					String price = this.rs.getString(3);
 					String year = this.rs.getString(4);
@@ -92,6 +92,46 @@ public class CarDAO {
 		
 		return list;
 	}
+	//R
+	
+	public Car getCarInformation(String carNum1) {
+		Car car = null;
+		
+		this.conn= DBManager.getConnection();
+		if(conn!=null) {
+			String sql = "SELECT * FROM car WHERE carNum=?";
+			
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				
+				this.pstmt.setString(1, carNum1);
+				this.rs = this.pstmt.executeQuery();
+				
+				while(this.rs.next()) {
+					String carNum = this.rs.getString(1);
+					String carName = this.rs.getString(2);
+					String hourPrice = this.rs.getString(3);
+					String year = this.rs.getString(4);
+					String seater = this.rs.getString(5);
+					String possibleAge = this.rs.getString(6);
+					Timestamp registDate = this.rs.getTimestamp(7);
+					
+					car = new Car(carNum, carName, hourPrice, year, seater, possibleAge, registDate);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+			
+		}
+		
+		
+		
+		return car;
+	}
+	
 	
 	//U
 	public void updateUser(CarDTO CarDTO) {
@@ -108,7 +148,7 @@ public class CarDAO {
 				this.pstmt.setString(3, user.getYear());
 				this.pstmt.setString(4, user.getSeater());
 				this.pstmt.setString(5, user.getPossibleAge());
-				this.pstmt.setInt(6, user.getCarNum());
+				this.pstmt.setString(6, user.getCarNum());
 			
 				
 				this.pstmt.execute();

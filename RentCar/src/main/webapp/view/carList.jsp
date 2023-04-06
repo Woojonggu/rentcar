@@ -2,7 +2,7 @@
 <%@page import="Car.Car"%>
 <%@page import="Car.Controller.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,51 +10,53 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header"/>
-<section>
+	<jsp:include page="header" />
+	<section>
 
 
-<%
-CarDAO carDao = CarDAO.getInstance();
-ArrayList<Car> list = carDao.getCarList();
-%>
+		<%
+		CarDAO carDao = CarDAO.getInstance();
+		ArrayList<Car> list = carDao.getCarList();
+		%>
 
-<table>
-<tr>
-<td>차 번호</td>
-<td>차 이름</td>
-<td>시간 당</td>
-<td>차 연식</td>
-<td>나이제한</td>
-</tr>
-<%
+		<div class="carList1">
+			<%
+			for (Car car : list) {
+				String num = car.getCarNum();
+				String name = car.getCarName();
+				String price = car.getHourPrice();
+				String year = car.getYear();
+				String age = car.getPossibleAge();
+			%>
+			<div class="carList">
 
-for(Car car : list){
-	int num = car.getCarNum();
-	String name = car.getCarName();
-	String price = car.getHourPrice();
-	String year = car.getYear();
-	String age = car.getPossibleAge();
-
-%>
-<tr>
-<td><%=num %><a href="view/reservation.jsp">예매하기</a></td>
-<td><%=name %></td>
-<td><%=price %>원</td>
-<td><%=year %>년</td>
-<td><%=age %>세 이상</td>
-</tr>
-
-<%
-}
-%>
+				<h1><%=name%></h1>
+				<p><%=price%>원/hour&nbsp;|&nbsp;<%=age%>세 이상&nbsp;|&nbsp;<%=year%>년
+				</p>
 
 
-</table>
+				<%
+				if (session.getAttribute("id") == null) {
+				%>
+				<a href="login">예약하기</a>
+				<%
+				} else {
+				%>
+				<a href="booking?num=<%=num%>">예약하기</a>
+				<%
+				}
+				%>
+			</div>
+			<%
+			}
+			%>
 
 
-</section>
+		</div>
+
+
+	</section>
 
 </body>
-<jsp:include page="footer"/>
+<jsp:include page="footer" />
 </html>

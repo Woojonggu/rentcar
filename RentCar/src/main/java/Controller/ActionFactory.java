@@ -1,6 +1,9 @@
 package Controller;
 
+import Controller.action.BookingAction;
+import Controller.action.LoginAction;
 import Controller.action.RegistUserAction;
+
 
 public class ActionFactory {
 	
@@ -16,6 +19,13 @@ public class ActionFactory {
 		if(command.equals("join")) {
 			action = new RegistUserAction();
 		}
+		else if(command.equals("login")){
+			action = new LoginAction();
+		}
+		else if(command.equals("booking")) {
+			action = new BookingAction();
+		}
+		
 		
 		return action;
 	}
