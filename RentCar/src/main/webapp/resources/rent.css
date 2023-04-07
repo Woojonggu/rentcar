@@ -96,7 +96,35 @@ div {
 
 .carList1 {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;	
+}
+.review{
+	color: dodgerblue;
+	background-color: aqua;
+}
+.write{
+	display: flex;
+	justify-content: flex-end;
+	
+}
+.reviewWrite{
+	padding: 50px 70px;
+}
+.tittle{
+	width:700px;
+	height: 30px;
+}
+.contents{
+	width: 700px;
+	height: 1000px;
 	
 	
 }
+.reviewWrite1{
+	display:flex;
+	flex-direction: column;
+    align-items: center;
+	
+	padding : 50px;
+}
+

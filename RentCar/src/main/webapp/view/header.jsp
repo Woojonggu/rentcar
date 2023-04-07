@@ -17,7 +17,7 @@
 		<ul>
 			<li><a href="carList">렌트하기</a></li>
 			<li><a>공지사항</a></li>
-			<li><a>후기</a></li>
+			<li><a href="review">후기</a></li>
 			
 			<%
 			String str =(String)session.getAttribute("id");
@@ -30,6 +30,7 @@
 			}
 			else{
 			%>
+			<li><a href="mypage">마이페이지</a></li>
 			<li><a href="logout">로그아웃</a></li>
 			
 			<%

@@ -97,6 +97,66 @@
 	 <url-pattern>/login</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+	 <servlet-name>review</servlet-name>
+	 <jsp-file>/view/review.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	 <servlet-name>review</servlet-name>
+	 <url-pattern>/review</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	 <servlet-name>reviewWrite</servlet-name>
+	 <jsp-file>/view/reviewWrite.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	 <servlet-name>reviewWrite</servlet-name>
+	 <url-pattern>/reviewWrite</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	 <servlet-name>reviewRead</servlet-name>
+	 <jsp-file>/view/reviewRead.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	 <servlet-name>reviewRead</servlet-name>
+	 <url-pattern>/reviewRead</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	 <servlet-name>mypage</servlet-name>
+	 <jsp-file>/view/mypage.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	 <servlet-name>mypage</servlet-name>
+	 <url-pattern>/mypage</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+	 <servlet-name>correctionUser</servlet-name>
+	 <jsp-file>/view/correctionUser.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	 <servlet-name>correctionUser</servlet-name>
+	 <url-pattern>/correctionUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	 <servlet-name>bookingHistory</servlet-name>
+	 <jsp-file>/view/bookingHistory.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	 <servlet-name>bookingHistory</servlet-name>
+	 <url-pattern>/bookingHistory</url-pattern>
+	</servlet-mapping>
 	
 
 

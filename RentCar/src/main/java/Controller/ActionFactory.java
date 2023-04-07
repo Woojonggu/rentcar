@@ -1,8 +1,10 @@
 package Controller;
 
 import Controller.action.BookingAction;
+import Controller.action.CorrectionAction;
 import Controller.action.LoginAction;
 import Controller.action.RegistUserAction;
+import Controller.action.ReviewAction;
 
 
 public class ActionFactory {
@@ -25,7 +27,12 @@ public class ActionFactory {
 		else if(command.equals("booking")) {
 			action = new BookingAction();
 		}
-		
+		else if(command.equals("review")) {
+			action = new ReviewAction();
+		}
+		else if(command.equals("correction")) {
+			action = new CorrectionAction();
+		}
 		
 		return action;
 	}

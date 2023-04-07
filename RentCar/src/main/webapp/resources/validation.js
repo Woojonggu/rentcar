@@ -102,3 +102,27 @@ function checklogin(htmlForm){
 	}
 	
 }
+function checkReview(htmlForm){
+	
+	let url = "reviewWrite?"
+	
+	const tittle = document.getElementById("tittle").value;
+	const contents = document.getElementById("contents").value;
+	
+	
+	let check = true;
+	
+	if(tittle === ""){
+		alert("제목을 입력해주세요");
+		check = false;
+	}
+	else if(contents === ""){
+		alert("내용을 입력해주세요");
+		check = false;
+	}
+	
+	
+	if(check === true){
+		htmlForm.submit();
+	}
+}

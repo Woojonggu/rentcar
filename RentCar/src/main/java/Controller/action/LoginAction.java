@@ -25,6 +25,7 @@ public class LoginAction implements Action{
 		if(user!=null) {
 			response.sendRedirect("index.jsp");
 			session.setAttribute("id", id);
+			session.setAttribute("password", password);
 			session.setAttribute("num", user.getUsersNum());
 			
 			String str = (String)session.getAttribute("errMsg");

@@ -1,5 +1,5 @@
 <%@page import="java.time.Period"%>
-<%@page import="java.sql.Date"%>
+
 <%@page import="java.awt.print.Printable"%>
 <%@page import="Car.Car"%>
 <%@page import="Car.Controller.CarDAO"%>
@@ -22,6 +22,7 @@
 		Car car = carDao.getCarInformation(carNum);
 
 		String carName = car.getCarName();
+		String price = car.getHourPrice();
 		int num = 0;
 		if (session.getAttribute("num") != null) {
 			num = (int) session.getAttribute("num");
@@ -30,20 +31,29 @@
 		String returnDate = request.getParameter("returnDate");
 		
 		
+		
+		
+		
 		%>
 
 
 
 
-		<form method="POST" action="../Service" class = "bookingform">
-		
-			<input type="hidden" name="command" value="booking">
+		<form method="POST" action="../Service" class="bookingform">
+
+			<input type="hidden" name="command" value="booking"> <input
+				type="hidden" name="carNum" value=<%=carNum%>> <input
+				type="hidden" name="carName" value=<%=carName%>> <input
+				type="hidden" name="price" value=<%=price%>>
+
+
 
 			<div class="booking">
 				<h1><%=carName%></h1>
 				<div>
 					<h4>
-					<%=car.getSeater()%>인승|<%=car.getYear()%>년|<%=car.getPossibleAge()%>세 이상
+						<%=car.getSeater()%>인승|<%=car.getYear()%>년|<%=car.getPossibleAge()%>세
+						이상
 					</h4>
 				</div>
 			</div>
@@ -51,12 +61,13 @@
 
 			<p>
 			<h4>대여일</h4>
-			<input type="datetime-local" value="borrowDate">
+			<input type="datetime-local" name="borrowDate" value="borrowDate">
+			
 			</p>
 
 			<p>
 			<h4>반납일</h4>
-			<input type="datetime-local" value="returnDate">
+			<input type="datetime-local" name="returnDate" value="returnDate">
 			</p>
 
 			<input type="submit" value="예약하기">

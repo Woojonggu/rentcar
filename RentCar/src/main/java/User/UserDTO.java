@@ -17,6 +17,7 @@ public class UserDTO {
 		this.age = age;
 		this.registDate = registDate;
 	}
+	
 
 	public int getUsersNum() {
 		return usersNum;

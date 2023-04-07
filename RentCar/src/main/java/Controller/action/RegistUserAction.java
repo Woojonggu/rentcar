@@ -36,7 +36,7 @@ public class RegistUserAction implements Action {
 		UserDAO userDao = UserDAO.getInstance();
 		userDao.createUser(userDto);
 
-		response.sendRedirect("join");
+		response.sendRedirect("index.jsp");
 	}
 
 	
